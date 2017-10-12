@@ -1,0 +1,326 @@
+/******************************
+            =STYLE INDEX
+******************************
+=SASS
+=BASE
+=BUTTONS
+=NAV
+=HEADER
+=CARDS
+=PROJECTS
+
+ CSS ORDER
+ ---------------------------------------------------
+ Layout Properties (position, float, clear, display)
+ Box Model Properties (width, height, margin, padding)
+ Visual Properties (color, background, border, box-shadow)
+ Typography Properties (font-size, font-family, text-align, text-transform)
+ Misc Properties (cursor, overflow, z-index)*/
+
+$primary-color: #20aebb;
+$img-border: #ececec;
+$font-main: 'Open Sans', Helvetica, Arial, sans-serif;
+$font-ft: 'Playfair Display', Georgia, serif; 
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow($x1, $y1, $blur1, $opacity1, $x2, $y2, $blur2, $opacity2 ) {
+		-webkit-box-shadow: $x1 $y1 $blur1 rgba(0,0,0,$opacity1), $x2 $y2 $blur2 rgba(0,0,0,$opacity2);
+		-moz-box-shadow: $x1 $y1 $blur1 rgba(0,0,0,$opacity1), $x2 $y2 $blur2 rgba(0,0,0,$opacity2);
+		box-shadow: $x1 $y1 $blur1 rgba(0,0,0,$opacity1), $x2 $y2 $blur2 rgba(0,0,0,$opacity2);
+}
+
+/******************************
+            =BASE
+******************************/
+
+html {
+	font-size: 10px;
+	line-height: 1.4;
+	font-family: $font-main;
+	font-weight: 300;
+}
+
+header, footer, main, aside, article, div, .card {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+	line-height: normal;
+	font-family: $font-ft;
+	font-weight: 400;
+
+}
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+.container {
+	margin: 15em auto 0;
+}
+
+.container__title {
+	font-size: 5em;
+	text-align: center;
+
+	&:before {
+		content: '';
+		position: absolute;
+		width: 76%;
+		height: 2px;
+		left: 12%;
+		right: 12%;
+		background-color: black;
+		z-index: -2;
+
+	}
+}
+
+.container__title--bg-white {
+	position: relative;
+	top: -38px;
+	padding: 0 20px;
+	background-color: white;
+}
+
+.img--block {
+	display: block;
+	width: 100%;
+}
+
+.main--home {
+	position: relative;
+	top: -150px;
+}
+
+.social {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.social__link {
+	margin: 0 10px;
+}
+
+.social__icon {
+	width: 35px;
+	@include border-radius(100%);
+	transition: 0.4s all ease;
+
+	&:hover {
+		transform: scale(1.2);
+	}
+}
+
+/******************************
+            =BUTTONS
+******************************/
+.container--button {
+	margin-top: 5em;
+	text-align: center;
+}
+
+.btn {
+	padding: 10px 20px;
+	@include border-radius(5px);
+	font-weight: 600;
+	font-size: 1.5em;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.btn--more {
+	border: 2px solid $primary-color;
+	color: $primary-color;
+}
+
+
+
+/******************************
+            =NAV
+******************************/
+nav {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+
+.nav__item {
+	display: inline-block;
+	padding: 0 20px;
+	list-style-type: none;
+	
+	&:last-child {
+		border: none;
+	}
+}
+
+.nav__link {
+	position: relative;
+	color: white;
+	font-size: 1.5em;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: 0.4s color ease;
+
+	&:hover {
+		color: $primary-color;
+		z-index: 2;
+	}
+	
+	&:before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 1px;
+		bottom: -10px;
+		opacity: 0;
+		left: 0;
+		background-color: #20aebb;
+		-webkit-transition: 0.2s all ease-in-out;
+		transition: 0.2s all ease-in-out;
+	}
+
+	&:hover:before {
+		opacity: 1;
+		bottom: -2px;
+	}
+}
+
+/******************************
+            =HEADER
+******************************/
+header {
+	height: 65vh;
+	background: URL('../img/assets/bg.jpg') no-repeat;
+	background-size: cover;
+	-webkit-clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+	clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+}
+
+.zd-info {
+	margin: 10em 0;
+	text-align: center;
+}
+
+.zd-info__logo {
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.zd-info__title {
+	color: $primary-color;
+	font-size: 2.5em;
+	letter-spacing: 2px;
+	font-family: $font-main;
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+/******************************
+            =CARDS
+******************************/
+
+.card {
+	display: flex;
+	justify-content: space-between;
+
+	@include border-radius(10px);
+	@include box-shadow(0, 3px, 6px, 0.16, 0, 3px, 6px, 0.23);
+	background: white;
+}
+
+.card__heading {
+	font-size: 3.5em;
+	margin: 0 0 20px;
+}
+
+.card__content {
+	font-size: 2em;
+}
+
+.card--center {
+	margin: 0 auto;
+}
+
+
+.card--about {
+	padding: 10px;	
+	max-width: 800px;
+
+	.card__left {
+		width:62.5%;
+		padding:10px;
+	}
+
+	.card__right {
+		width: 37.5%;
+		padding: 10px;
+	}
+}
+
+.img__headshot {
+	@include border-radius(100%);
+	@include box-shadow(0, 3px, 6px, 0.16, 0, 3px, 6px, 0.23);
+}
+
+.card--project {
+	margin-top: 5em;
+	max-width: 1000px;
+
+	.card__left {
+		width: 44%;
+	}
+
+	.card__right {
+		width: 56%;
+		padding: 20px;
+	}
+}
+
+.card__thumbnail {
+	background: url('../img/assets/hrgrapevine-news.jpg');	
+	background-size: cover;
+	@include border-radius(10px 0 0 10px);
+	border-right: 1px solid $img-border;
+}
+
+.card--writing {
+
+}
+
+
+/******************************
+            =PROJECT
+******************************/
+
+.container--project {
+	max-width: 1300px;
+}
+
+.project__link {
+	display: block;
+	color: black;
+	transition: 0.4s all ease;
+
+	&:hover {
+		transform: scale(1.1);
+	}
+}

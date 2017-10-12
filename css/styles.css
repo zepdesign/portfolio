@@ -1,0 +1,313 @@
+/******************************
+            =STYLE INDEX
+******************************
+=SASS
+=BASE
+=BUTTONS
+=NAV
+=HEADER
+=CARDS
+=PROJECTS
+
+ CSS ORDER
+ ---------------------------------------------------
+ Layout Properties (position, float, clear, display)
+ Box Model Properties (width, height, margin, padding)
+ Visual Properties (color, background, border, box-shadow)
+ Typography Properties (font-size, font-family, text-align, text-transform)
+ Misc Properties (cursor, overflow, z-index)*/
+/******************************
+            =BASE
+******************************/
+html {
+  font-size: 10px;
+  line-height: 1.4;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+header, footer, main, aside, article, div, .card {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+  line-height: normal;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  margin: 15em auto 0;
+}
+
+.container__title {
+  font-size: 5em;
+  text-align: center;
+}
+
+.container__title:before {
+  content: '';
+  position: absolute;
+  width: 76%;
+  height: 2px;
+  left: 12%;
+  right: 12%;
+  background-color: black;
+  z-index: -2;
+}
+
+.container__title--bg-white {
+  position: relative;
+  top: -38px;
+  padding: 0 20px;
+  background-color: white;
+}
+
+.img--block {
+  display: block;
+  width: 100%;
+}
+
+.main--home {
+  position: relative;
+  top: -150px;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social__link {
+  margin: 0 10px;
+}
+
+.social__icon {
+  width: 35px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+  transition: 0.4s all ease;
+}
+
+.social__icon:hover {
+  transform: scale(1.2);
+}
+
+/******************************
+            =BUTTONS
+******************************/
+.container--button {
+  margin-top: 5em;
+  text-align: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.btn--more {
+  border: 2px solid #20aebb;
+  color: #20aebb;
+}
+
+/******************************
+            =NAV
+******************************/
+nav {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.nav__item {
+  display: inline-block;
+  padding: 0 20px;
+  list-style-type: none;
+}
+
+.nav__item:last-child {
+  border: none;
+}
+
+.nav__link {
+  position: relative;
+  color: white;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.4s color ease;
+}
+
+.nav__link:hover {
+  color: #20aebb;
+  z-index: 2;
+}
+
+.nav__link:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -10px;
+  opacity: 0;
+  left: 0;
+  background-color: #20aebb;
+  -webkit-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+}
+
+.nav__link:hover:before {
+  opacity: 1;
+  bottom: -2px;
+}
+
+/******************************
+            =HEADER
+******************************/
+header {
+  height: 65vh;
+  background: URL("../img/assets/bg.jpg") no-repeat;
+  background-size: cover;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+}
+
+.zd-info {
+  margin: 10em 0;
+  text-align: center;
+}
+
+.zd-info__logo {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.zd-info__title {
+  color: #20aebb;
+  font-size: 2.5em;
+  letter-spacing: 2px;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+/******************************
+            =CARDS
+******************************/
+.card {
+  display: flex;
+  justify-content: space-between;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background: white;
+}
+
+.card__heading {
+  font-size: 3.5em;
+  margin: 0 0 20px;
+}
+
+.card__content {
+  font-size: 2em;
+}
+
+.card--center {
+  margin: 0 auto;
+}
+
+.card--about {
+  padding: 10px;
+  max-width: 800px;
+}
+
+.card--about .card__left {
+  width: 62.5%;
+  padding: 10px;
+}
+
+.card--about .card__right {
+  width: 37.5%;
+  padding: 10px;
+}
+
+.img__headshot {
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card--project {
+  margin-top: 5em;
+  max-width: 1000px;
+}
+
+.card--project .card__left {
+  width: 44%;
+}
+
+.card--project .card__right {
+  width: 56%;
+  padding: 20px;
+}
+
+.card__thumbnail {
+  background: url("../img/assets/hrgrapevine-news.jpg");
+  background-size: cover;
+  -webkit-border-radius: 10px 0 0 10px;
+  -moz-border-radius: 10px 0 0 10px;
+  -ms-border-radius: 10px 0 0 10px;
+  border-radius: 10px 0 0 10px;
+  border-right: 1px solid #ececec;
+}
+
+/******************************
+            =PROJECT
+******************************/
+.container--project {
+  max-width: 1300px;
+}
+
+.project__link {
+  display: block;
+  color: black;
+  transition: 0.4s all ease;
+}
+
+.project__link:hover {
+  transform: scale(1.1);
+}
