@@ -129,6 +129,12 @@ a {
   font-size: 1.5em;
   letter-spacing: 1px;
   text-transform: uppercase;
+  transition: 0.4s all ease;
+}
+
+.btn:hover {
+  background: #20aebb;
+  color: white;
 }
 
 .btn--more {

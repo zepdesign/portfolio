@@ -144,6 +144,12 @@ a {
 	font-size: 1.5em;
 	letter-spacing: 1px;
 	text-transform: uppercase;
+	transition: 0.4s all ease;
+
+	&:hover {
+		background: $primary-color;
+		color: white;
+	}
 }
 
 .btn--more {
