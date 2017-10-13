@@ -17,6 +17,6 @@ $(document).ready(function(){
 
     if (url.search("#message-sent") >= 0) {
         $('.msg-status').addClass('msg-status--successful');
-    } 
+    }; // End Message sent confirmation 
 
 });

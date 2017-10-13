@@ -28,6 +28,11 @@ html {
   font-weight: 300;
 }
 
+.body--bg {
+  background: url("../img/assets/bg.png") no-repeat;
+  background-position-y: -370px;
+}
+
 header, footer, main, aside, article, div, .card {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -54,7 +59,7 @@ a {
 }
 
 .container {
-  margin: 10em auto 0;
+  margin: 10em auto;
 }
 
 .container.container--single {
@@ -117,18 +122,12 @@ a {
   width: 100%;
 }
 
-.main--home {
-  position: relative;
-  top: -150px;
-}
-
-.main--project {
-  position: relative;
-  top: -500px;
-}
-
 .main--global {
   margin-bottom: 10em;
+}
+
+.main--about {
+  margin: 15em auto 10em;
 }
 
 .social {
@@ -215,7 +214,8 @@ nav {
 }
 
 .header--global nav,
-.header--project nav {
+.header--project nav,
+.header--about nav {
   justify-content: space-around;
 }
 
@@ -264,20 +264,10 @@ nav {
 /******************************
             =HEADER
 ******************************/
-header {
-  background: URL("../img/assets/bg.jpg") no-repeat;
-  background-size: cover;
-}
-
-.header--home,
-.header--project {
-  height: 65vh;
-  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
-  clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
-}
-
 .header--global {
   height: 9.3em;
+  background: url("../img/assets/bg.png") no-repeat;
+  background-position-y: -370px;
 }
 
 .header__logo {
@@ -360,7 +350,18 @@ header {
   padding: 10px;
 }
 
+.card--about .card__center {
+  margin: -110px auto 0;
+}
+
+.card--about-page {
+  flex-wrap: wrap;
+  padding: 20px;
+  font-size: 2em;
+}
+
 .img__headshot {
+  max-width: 300px;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
@@ -456,6 +457,13 @@ header {
 
 .project__process__img {
   width: 44%;
+}
+
+.project__process__img img {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
 }
 
 .project__process__content {
