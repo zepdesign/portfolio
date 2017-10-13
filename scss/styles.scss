@@ -8,6 +8,8 @@
 =HEADER
 =CARDS
 =PROJECTS
+=FOOTER
+=CONTACTFORM
 
  CSS ORDER
  ---------------------------------------------------
@@ -72,10 +74,15 @@ a {
 }
 
 .container {
-	margin: 15em auto 0;
+	margin: 10em auto 0;
+
+	&.container--single {
+		margin-top: 5em;
+	}
 }
 
-.container__title {
+.container__title,
+.project__title {
 	font-size: 5em;
 	text-align: center;
 
@@ -86,17 +93,43 @@ a {
 		height: 2px;
 		left: 12%;
 		right: 12%;
-		background-color: black;
 		z-index: -2;
-
 	}
 }
 
-.container__title--bg-white {
+.container__title--bg {
 	position: relative;
 	top: -38px;
 	padding: 0 20px;
-	background-color: white;
+}
+
+.container__title--black {
+	color: black;
+
+	&:before {
+		background-color: black;
+	}
+
+	.container__title--bg {
+		background-color: white;
+	}
+}
+
+.container__title--white {
+	color: white;
+
+	&:before {
+		background-color: white;
+	}
+
+	.container__title--bg {
+		background-color: black;
+	}
+}
+
+
+.container__title--bg-black {
+	background-color: black;
 }
 
 .img--block {
@@ -107,6 +140,15 @@ a {
 .main--home {
 	position: relative;
 	top: -150px;
+}
+
+.main--project {
+	position: relative;
+	top: -500px;
+}
+
+.main--global {
+	margin-bottom:10em;
 }
 
 .social {
@@ -129,17 +171,29 @@ a {
 	}
 }
 
+
+/* Remove box shadow firefox, chrome and opera put around required fields.*/
+input:required, textarea:required {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+}
+
+
 /******************************
             =BUTTONS
 ******************************/
-.container--button {
+.container__button {
 	margin-top: 5em;
 	text-align: center;
 }
 
-.btn {
+.btn,
+.contact-form__button {
 	padding: 10px 20px;
 	@include border-radius(5px);
+	font-family: $font-main;
 	font-weight: 600;
 	font-size: 1.5em;
 	letter-spacing: 1px;
@@ -152,11 +206,18 @@ a {
 	}
 }
 
-.btn--more {
+.btn--more,
+.contact-form__button {
 	border: 2px solid $primary-color;
 	color: $primary-color;
 }
 
+.contact-form__button {
+	display: block;
+	margin: 0 auto;
+	background: transparent;
+	cursor: pointer;
+}
 
 
 /******************************
@@ -165,8 +226,15 @@ a {
 nav {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	padding: 20px;
+
+	.header--global &,
+	.header--project & {
+		justify-content: space-around;
+	}
 }
+
 
 .nav__item {
 	display: inline-block;
@@ -214,15 +282,27 @@ nav {
             =HEADER
 ******************************/
 header {
-	height: 65vh;
 	background: URL('../img/assets/bg.jpg') no-repeat;
 	background-size: cover;
+}
+
+.header--home,
+.header--project {
+	height: 65vh;
 	-webkit-clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
 	clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
 }
 
+.header--global {
+	height: 9.3em;
+}
+
+.header__logo {
+	width:100px;
+}
+
 .zd-info {
-	margin: 10em 0;
+	margin: 8em 0;
 	text-align: center;
 }
 
@@ -240,6 +320,15 @@ header {
 	text-transform: uppercase;
 }
 
+#zd-logo {
+	fill:white;
+	transition: 0.4s fill ease;
+	
+	&:hover {
+		fill: $primary-color;
+	}
+}
+
 /******************************
             =CARDS
 ******************************/
@@ -251,6 +340,10 @@ header {
 	@include border-radius(10px);
 	@include box-shadow(0, 3px, 6px, 0.16, 0, 3px, 6px, 0.23);
 	background: white;
+
+	&.card--single {
+		background: none;
+	}
 }
 
 .card__heading {
@@ -265,7 +358,6 @@ header {
 .card--center {
 	margin: 0 auto;
 }
-
 
 .card--about {
 	padding: 10px;	
@@ -312,6 +404,11 @@ header {
 
 }
 
+.card--single {
+	max-width: 1000px;
+}
+
+
 
 /******************************
             =PROJECT
@@ -329,4 +426,197 @@ header {
 	&:hover {
 		transform: scale(1.1);
 	}
+}
+
+.container--single {
+	max-width: 1000px;
+}
+
+.project__info__container {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin: 0 auto 10em;
+}
+
+.project__info {
+	width: 49%;
+}
+
+.project__info__title {
+	font-size: 3em;
+	margin-bottom: 10px;
+}
+
+.project__info__content {
+	font-size: 2em;
+	margin-top:0;
+}
+
+.project__title {
+	color: white;
+}
+
+
+.project__process {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 5em;
+
+	& .project__info__title {
+		margin: 0;
+	}
+}
+
+.project__process__img{
+	width: 44%;
+}
+
+.project__process__content {
+	width:56%;
+}
+
+.project__process__content--right {
+	padding-left: 20px;
+}
+
+.project__process__content--left {
+	padding-right: 20px;
+}
+
+/******************************
+            =FOOTER
+******************************/
+
+footer {
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	padding: 30px;
+	background: black;
+	z-index: 0;
+}
+
+.footer__meta {
+	margin-top: 4em;
+	color: white;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+/******************************
+            =CONTACTFORM
+******************************/
+
+.contact-form {
+	display: flex;
+	justify-content: center;
+
+	form {
+		width: 40%;
+	}
+}
+
+.contact-form__input,
+.contact-form__select,
+.contact-form__textarea {
+	display: block;
+	width: 100%;
+	margin-bottom: 20px;
+	padding: 1px 0;
+	background: transparent;
+	border: none;
+	font-size: 2em;
+	font-family: $font-main;
+	font-weight: 300;
+	outline: 0;
+
+	.form--bg-black & {
+		color: white;
+		border-bottom: 1px solid white;
+	}
+
+	.form--bg-white & {
+		color: black;
+		border-bottom: 1px solid black;
+	}
+}
+
+.form--bg-white ::-webkit-input-placeholder {
+    color: black;
+    opacity: 1;
+}
+
+.form--bg-white :-moz-placeholder {
+    color: black;
+    opacity: 1;
+}
+
+.form--bg-white ::-moz-placeholder {
+    color: black;
+    opacity: 1;
+}
+
+.form--bg-white :-ms-input-placeholder {
+    color: black;
+}
+
+
+.contact-form__label {
+	position: relative;
+	top: -30px;
+	left: 0;
+	color: $primary-color;
+	font-size: 1.6em;
+	opacity: 0;
+	transition: .2s all ease-in-out;
+}
+
+.contact-form__textarea {
+	height: 75px;
+	resize: none;
+}
+
+
+.contact-form__input--has-value + label,
+.contact-form__input:focus + label,
+.contact-form__textarea--has-value + label,
+.contact-form__textarea:focus + label {
+	top: -65px;
+	opacity: 1;
+}
+
+.contact-form__textarea--has-value + label,
+.contact-form__textarea:focus + label {
+	top: -116px;
+}
+
+.msg-status {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 3em;
+	display: none;
+}
+
+.msg-status--successful {
+		display: flex;
+	}
+
+.msg-status__text {
+	display: inline-block;
+	color: white;
+	font-size: 2.5em;
+}
+
+.msg-status__icon {
+	display: inline-block;
+	width: 40px;
+	margin-right: 20px;
+}
+
+.contact__text {
+	font-size: 2.5em;
+	text-align: center;
+	margin: 0 auto 2em;
 }
