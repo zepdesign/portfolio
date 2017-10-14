@@ -10,6 +10,7 @@
 =PROJECTS
 =FOOTER
 =CONTACTFORM
+=SLIDESHOW
 
  CSS ORDER
  ---------------------------------------------------
@@ -333,6 +334,7 @@ nav {
 	background: white;
 
 	&.card--single {
+		display: block;
 		background: none;
 	}
 }
@@ -463,11 +465,12 @@ nav {
 .project__process {
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 5em;
+	margin-bottom: 15em;
 
 	& .project__info__title {
 		margin: 0;
 	}
+
 }
 
 .project__process__img {
@@ -625,4 +628,20 @@ footer {
 	font-size: 2.5em;
 	text-align: center;
 	margin: 0 auto 2em;
+}
+
+/******************************
+            =SLIDESHOW
+******************************/
+.slideshow { 
+    position: relative; 
+    padding: 10px;
+
+	& > .slideshow__slide { 
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		right: 10px;
+		bottom: 10px;
+	}
 }
