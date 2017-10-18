@@ -11,6 +11,7 @@
 =FOOTER
 =CONTACTFORM
 =SLIDESHOW
+=MEDIA QUERIES
 
  CSS ORDER
  ---------------------------------------------------
@@ -65,11 +66,6 @@ h1, h2, h3, h4 {
 	line-height: normal;
 	font-family: $font-ft;
 	font-weight: 400;
-
-}
-ul {
-	margin: 0;
-	padding: 0;
 }
 
 p:last-child {
@@ -78,6 +74,27 @@ p:last-child {
 
 a {
 	text-decoration: none;
+}
+
+
+button {
+	cursor: pointer;
+}
+
+.content__link {
+	color: $primary-color;
+}
+
+.content__link:hover {
+	border-bottom: 1px solid $primary-color;
+}
+
+.content__list {
+	font-size: 2em;
+}
+
+.content__list li {
+	margin-bottom: 10px;
 }
 
 .container {
@@ -134,7 +151,6 @@ a {
 	}
 }
 
-
 .container__title--bg-black {
 	background-color: black;
 }
@@ -172,6 +188,13 @@ a {
 	}
 }
 
+.list__title {
+	margin-bottom: 0;
+}
+
+.show--mobile {
+	display: none;
+}
 
 /* Remove box shadow firefox, chrome and opera put around required fields.*/
 input:required, textarea:required {
@@ -181,13 +204,16 @@ input:required, textarea:required {
     box-shadow: none;
 }
 
-
 /******************************
             =BUTTONS
 ******************************/
 .container__button {
 	margin-top: 5em;
 	text-align: center;
+}
+
+.container__button--project {
+	margin: 4em auto 0;
 }
 
 .btn,
@@ -200,6 +226,7 @@ input:required, textarea:required {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transition: 0.4s all ease;
+	background: white;
 
 	&:hover {
 		background: $primary-color;
@@ -224,7 +251,7 @@ input:required, textarea:required {
 /******************************
             =NAV
 ******************************/
-nav {
+.nav--desktop {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -235,6 +262,11 @@ nav {
 	.header--about & {
 		justify-content: space-around;
 	}
+}
+
+.nav__container {
+	margin: 0;
+	padding: 0;
 }
 
 
@@ -278,6 +310,36 @@ nav {
 		opacity: 1;
 		bottom: -2px;
 	}
+}
+
+.mobile__nav {
+	border-top: 3px solid $primary-color;
+}
+
+.mobile__nav__button {
+	margin: 0 auto;
+	padding: 5px 10px;
+	width: 100px;
+	font-size: 1.5em;
+	color: white;
+	text-align: center;
+	text-transform: uppercase;
+	background: $primary-color;
+}
+
+.nav--mobile {
+	width: 100%;
+}
+
+.nav--mobile .nav__container {
+	display: none;
+	padding: 10px 0;
+}
+
+.nav--mobile .nav__item {
+	display: block;
+	text-align: center;
+	margin-bottom: 10px;
 }
 
 /******************************
@@ -375,6 +437,8 @@ nav {
 	flex-wrap: wrap;
 	padding: 20px;
 	font-size: 2em;
+	box-shadow: none;
+	background: none;
 }
 
 .img__headshot {
@@ -398,10 +462,14 @@ nav {
 }
 
 .card__thumbnail {
-	background: url('../img/assets/hrgrapevine-news.jpg');	
-	background-size: cover;
+	max-height: 300px;
 	@include border-radius(10px 0 0 10px);
 	border-right: 1px solid $img-border;
+	overflow: hidden;
+}
+
+.card__thumbnail img {
+	height: 100%;
 }
 
 .card--writing {
@@ -412,6 +480,9 @@ nav {
 	max-width: 1000px;
 }
 
+.card--single img {
+	@include border-radius(10px);
+}
 
 
 /******************************
@@ -465,7 +536,6 @@ nav {
 .project__process {
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 15em;
 
 	& .project__info__title {
 		margin: 0;
@@ -473,8 +543,14 @@ nav {
 
 }
 
+.project__process__container {
+	margin-bottom: 13em;
+}
+
 .project__process__img {
-	width: 44%;
+	width: 44%;	
+	@include border-radius(10px);
+	@include box-shadow(0, 3px, 6px, 0.16, 0, 3px, 6px, 0.16);
 }
 
 .project__process__img img {
@@ -633,15 +709,66 @@ footer {
 /******************************
             =SLIDESHOW
 ******************************/
-.slideshow { 
-    position: relative; 
-    padding: 10px;
 
-	& > .slideshow__slide { 
-		position: absolute;
-		top: 10px;
-		left: 10px;
-		right: 10px;
-		bottom: 10px;
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 44%;
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
+
+.rslides_tabs {
+	display: inline;
+	position: absolute;
+	bottom: 10;
+}
+
+/******************************
+            =MEDIA QUERIES
+******************************/
+
+@media (max-width: 380px) {
+	.hide--mobile {
+		display: none;
+	}
+
+	.show--mobile {
+		display: block
+	}
+}
+
+@media (max-width: 500px) {
+
+	.zd-info {
+		margin: 4em 0;
+	}
+
+	.zd-info__logo {
+		width: 80%;
 	}
 }

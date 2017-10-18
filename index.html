@@ -2,6 +2,22 @@
 <html>
 <head>
 	<title>Zep.Design - Portfolio of Giuseppe Castiglione | UX Designer &amp; Front-end Developer</title>
+	<!--Meta-->
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="initial-scale=1" />
+    <meta name="keywords" content="Zep Design, Giuseppe Castiglione, UX, Designer, Developer, London, Hertfordshire, Freelance, Back-end, Front-end, HTML, CSS, PHP" >
+    <meta name="Description" content="Zep Design is the portfolio of Giuseppe Castiglione. A London & Hertfordshire based UX Designer and Developer.">
+    <!--Facebook Meta-->
+    <meta property="og:url" content="http://zep.design" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Zep Design - UX Designer & Front-end Developer" />
+    <meta property="og:description" content="Creative adventurer, helping people along the digital road in their journey. Offering creative advice, industry insight and commercial perspective." />
+    <meta property="og:image" content="http://zep.design/img/zepdesign-logo.jpg" />
+    <!-- Assets -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="/css/styles.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Playfair+Display:400,700" rel="stylesheet">
@@ -10,9 +26,21 @@
 
 <header class="header--home">
 	<nav>
-		<ul class="nav">
-			<li class="nav__item"><a href="projects" title="#" class="nav__link">Projects</a></li><li class="nav__item"><a href="about" title="#" class="nav__link">About</a></li><li class="nav__item"><a href="contact" title="#" class="nav__link">Contact</a></li>
-		</ul>
+		<div class="nav--desktop hide--mobile">
+			<ul class="nav__container">
+				<li class="nav__item"><a href="projects" title="#" class="nav__link">Projects</a></li><li class="nav__item"><a href="about" title="#" class="nav__link">About</a></li><li class="nav__item"><a href="contact" title="#" class="nav__link">Contact</a></li>
+			</ul>
+		</div>
+		<div class="nav--mobile show--mobile">
+			<ul class="nav__container">
+				<li class="nav__item"><a href="projects" title="#" class="nav__link">Projects</a></li><li class="nav__item"><a href="about" title="#" class="nav__link">About</a></li><li class="nav__item"><a href="contact" title="#" class="nav__link">Contact</a></li>
+			</ul>
+
+			<div class="mobile__nav">
+				<div class="mobile__nav__button">Menu</div>
+			</div>
+
+		</div>
 	</nav>
 
 	<div class="zd-info">
@@ -26,7 +54,7 @@
 	<div class="card card--center card--about">
 		<div class="card__left">
 			<h3 class="card__heading">Hi! I'm Giuseppe.</h3>
-			<p class="card__content">I have been designing and coding for over 7 years and use my understanding of code to create clean, functional designs that offer great experiences.</p>
+			<p class="card__content">I have been designing and coding for over 7 years and use my understanding of code to create clean, functional designs that solve problems.</p>
 			<p class="card__content">I'm comfortable leading a team, working with clients and communicating with stake holders.</p>
 			<p class="card__content">I've also worked within a group of senior managers to improve employee engagement and retention. As well as ensuring company KPIs and commercial targets were met.</p>
 		</div>
@@ -35,11 +63,11 @@
 			<img src="img/assets/gc-headshot.jpg" alt="" class="img--block img__headshot" />
 
 			<div class="social">
-				<a href="" title"" class="social__link" target="_blank"><img src="img/assets/twitter.svg" class="social__icon"></a>
+				<a href="https://twitter.com/giuseppe_uk" title="Follow me on Twitter" class="social__link" target="_blank"><img src="/img/assets/twitter.svg" class="social__icon"></a>
 
-				<a href="" title"" class="social__link" target="_blank"><img src="img/assets/linkedin.svg" class="social__icon"></a>
+				<a href="https://www.linkedin.com/in/giuseppe-castiglione-b9383131/" title="Connect with me on LinkedIn" class="social__link" target="_blank"><img src="/img/assets/linkedin.svg" class="social__icon"></a>
 				
-				<a href="" title"" class="social__link" target="_blank"><img src="img/assets/email.svg" class="social__icon"></a>
+				<a href="mailto:info@zep.design" title="Drop me an email" class="social__link" target="_blank"><img src="/img/assets/email.svg" class="social__icon"></a>
 			</div>
 
 		</div>
@@ -54,7 +82,7 @@
 		<a href="/projects/hr-grapevine-news.html" title="" class="project__link">
 			<div class="card card--center card--project">
 				<div class="card__left card__thumbnail">
-
+					<img src="../img/projects/thumbs/hrgrapevine-news.jpg" class="img--block" />
 				</div>
 			
 				<div class="card__right">
@@ -66,10 +94,10 @@
 			</div>
 		</a>
 
-		<a href="#" title="" class="project__link">
+		<a href="/projects/zepdesign.html" title="" class="project__link">
 			<div class="card card--center card--project">
 				<div class="card__left card__thumbnail">
-
+					<img src="../img/projects/thumbs/zepdesign.png" class="img--block" />
 				</div>
 			
 				<div class="card__right">
@@ -81,10 +109,10 @@
 			</div>
 		</a>
 
-		<a href="#" title="" class="project__link">
+		<a href="/projects/yourfeed.html" title="" class="project__link">
 			<div class="card card--center card--project">
 				<div class="card__left card__thumbnail">
-
+					<img src="../img/projects/thumbs/yourfeed.png" class="img--block" />
 				</div>
 			
 				<div class="card__right">
@@ -97,7 +125,7 @@
 		</a>
 
 		<div class="container__button">
-			<a href="" title="" class="btn btn--more">View all projects</a>
+			<a href="/projects" title="" class="btn btn--more">View all projects</a>
 		</div>
 
 	</div>

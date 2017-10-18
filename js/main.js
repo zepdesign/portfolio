@@ -20,16 +20,21 @@ $(document).ready(function(){
     }; // End Message sent confirmation 
 
 
+    //Project slideshows
+    // $(function() {
+    //     $(".rslides").responsiveSlides();
+    //  }); // End Project slideshows
 
-    $(".slideshow > div:gt(0)").hide();
+    //Brief Project version
+    $('#short-project').click(function(){
+        var button_text = $('.container__title, .project__process__container').is(':hidden') ? 'View short summary' : 'View full summary';
+        $('.container__title--process, .project__process__container').toggle();
+        $('#short-project').text(button_text);
+    }); //EndBrief Project version
 
-    setInterval(function() { 
-      $('.slideshow > div:first')
-        .fadeOut(750)
-        .next()
-        .fadeIn(750)
-        .end()
-        .appendTo('.slideshow');
-    }, 3000);
+    $('.mobile__nav__button').click(function(){
+        $('.nav--mobile .nav__container').slideToggle();
+    });
+
 
 });
