@@ -50,6 +50,10 @@ html {
 	font-weight: 300;
 }
 
+body {
+	border-top: 3px solid $primary-color;
+}
+
 .body--bg {
 	background: url('../img/assets/bg.png') no-repeat;
 	background-position-y: -370px;
@@ -325,6 +329,7 @@ input:required, textarea:required {
 	text-align: center;
 	text-transform: uppercase;
 	background: $primary-color;
+	cursor: pointer;
 }
 
 .nav--mobile {
@@ -346,7 +351,6 @@ input:required, textarea:required {
             =HEADER
 ******************************/
 .header--global {
-	height: 9.3em;
 	background: url('../img/assets/bg.png') no-repeat;
 	background-position-y: -370px;
 }
@@ -462,18 +466,9 @@ input:required, textarea:required {
 }
 
 .card__thumbnail {
-	max-height: 300px;
 	@include border-radius(10px 0 0 10px);
 	border-right: 1px solid $img-border;
 	overflow: hidden;
-}
-
-.card__thumbnail img {
-	height: 100%;
-}
-
-.card--writing {
-
 }
 
 .card--single {
@@ -536,6 +531,7 @@ input:required, textarea:required {
 .project__process {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 
 	& .project__info__title {
 		margin: 0;
@@ -751,6 +747,196 @@ footer {
 /******************************
             =MEDIA QUERIES
 ******************************/
+@media (max-width: 1000px) {
+	.card--project {
+		flex-wrap: wrap;
+		text-align: center;
+		background: none;
+		box-shadow: none;
+
+		&:after {
+			content: '';
+			position: relative;
+			left: 5%;
+			width: 90%;
+			height: 2px;
+			background: black;
+		}
+	}
+
+	.card--project .card__left, 
+	.card--project .card__right {
+		width: 100%;
+	}
+
+	.card__thumbnail {
+		overflow: visible;
+	}
+
+	.card__thumbnail .img--block {
+		margin: 0 auto;
+		width: 66%;
+		@include box-shadow(0, 3px, 6px, 0.16, 0, 3px, 6px, 0.16);
+	}
+
+	.project__link:hover {
+		transform: none;
+	}
+
+	.contact-form form {
+		width: 75%;
+	}
+
+	.project__info__container,
+	.project__process__container {
+		padding: 0 20px;
+	}
+
+	.project__info,
+	.project__process__content {
+		width: 100%;
+		text-align: center;
+	}
+
+	.rslides,
+	.project__process__img {
+		width: 50%;
+		margin: 0 auto;
+	}
+
+	.project__process__content {
+		margin-top: 20px;
+	}
+
+	.project__process__container {
+		margin-bottom: 5em;
+	}
+
+	.project__process__content--left,
+	.project__process__content--right {
+		padding: 0;
+	}
+
+	.project__info__title,
+	.project__info__content {
+		padding: 0 20px;
+	}
+
+	.flex--reverse {
+		flex-wrap: wrap-reverse;
+	}
+}
+
+@media (max-width: 800px) {
+	.container {
+		margin: 5em auto;
+	}
+
+	.card--about {
+		flex-wrap: wrap-reverse;
+		text-align: center;
+		background: none;
+		box-shadow: none;
+	}
+
+	.card--about-page {
+		flex-wrap: wrap;
+	}
+
+	.card--about .card__left,
+	.card--about .card__right {
+		width: 100%;
+	}
+
+	.img__headshot {
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	.container__title:before,
+	.project__title:before {
+		width: 95%;
+		left: 2.5%;
+	}
+
+	.container__title,
+	.project__title {
+		font-size: 4em;
+	}
+
+	.container__title--bg {
+		top: -30px;
+	}
+
+	.card__thumbnail .img--block {
+		width: 90%;
+	}
+
+	.header--global .nav--desktop,
+	.header--project .nav--desktop,
+	.header--about .nav--desktop {
+		flex-direction: column;
+	}
+
+	#about .header__logo {
+		display: none;
+	}
+
+	.list__title {
+		width: 100%;
+	}
+
+	.card--about-page li {
+		text-align: left;
+	}
+
+	.project__title {
+		font-size: 3em;
+	}
+
+	#project--single {
+		background-position-y: -600px;
+	}
+
+}
+
+@media (max-width: 500px) {
+	.body--bg {
+		background-position-y: -600px;
+	}
+
+	.zd-info {
+		margin: 4em 0;
+	}
+
+	.zd-info__logo {
+		width: 80%;
+	}
+
+	.zd-info__title {
+		padding: 0 10px;
+		font-size: 1.8em;
+	}
+
+	.container--project .card--project:first-child {
+		margin-top: 2em;
+	}
+
+	.contact-form form {
+		width: 85%;
+	}
+
+	.contact__text {
+		font-size: 2em;
+	}
+
+	.rslides,
+	.project__process__img {
+		width: 85%;
+		margin: 0 auto;
+	}
+}
+
 
 @media (max-width: 380px) {
 	.hide--mobile {
@@ -760,15 +946,30 @@ footer {
 	.show--mobile {
 		display: block
 	}
-}
 
-@media (max-width: 500px) {
-
-	.zd-info {
-		margin: 4em 0;
+	.container__title,
+	.project__title {
+		font-size: 3em;
 	}
 
-	.zd-info__logo {
-		width: 80%;
+	.container__title--bg {
+		top: -23px;
+		padding: 0 10px;
+	}
+
+	.card__heading {
+		font-size: 2.5em;
+	}
+
+	.card__content {
+		font-size: 1.75em;
+	}
+
+	.about__intro {
+		font-size: 1.25em;
+	}
+
+	#project--single {
+		background-position-y: -800px;
 	}
 }
