@@ -21,20 +21,23 @@ $(document).ready(function(){
 
 
     //Project slideshows
-    // $(function() {
-    //     $(".rslides").responsiveSlides();
-    //  }); // End Project slideshows
+    $(function() {
+        $(".rslides").responsiveSlides();
+     }); // End Project slideshows
+
 
     //Brief Project version
     $('#short-project').click(function(){
         var button_text = $('.container__title, .project__process__container').is(':hidden') ? 'View short summary' : 'View full summary';
         $('.container__title--process, .project__process__container').toggle();
         $('#short-project').text(button_text);
-    }); //EndBrief Project version
+    }); //End Brief Project version
 
+
+    //Mobile Nav
     $('.mobile__nav__button').click(function(){
         $('.nav--mobile .nav__container').slideToggle();
-    });
+    }); //End Mobile Nav
 
 
 });

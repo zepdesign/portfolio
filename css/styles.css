@@ -1,7 +1,6 @@
 /******************************
             =STYLE INDEX
 ******************************
-=SASS
 =BASE
 =BUTTONS
 =NAV
@@ -31,12 +30,17 @@ html {
 }
 
 body {
-  border-top: 3px solid #20aebb;
+  border-top: 5px solid #20aebb;
+  border-bottom: 5px solid #20aebb;
 }
 
 .body--bg {
   background: url("../img/assets/bg.png") no-repeat;
   background-position-y: -370px;
+}
+
+#about.body--bg {
+  background-position-y: -710px;
 }
 
 header, footer, main, aside, article, div, .card {
@@ -318,11 +322,15 @@ input:required, textarea:required {
 
 .nav--mobile {
   width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 5;
 }
 
 .nav--mobile .nav__container {
   display: none;
   padding: 10px 0;
+  background: black;
 }
 
 .nav--mobile .nav__item {
@@ -534,7 +542,7 @@ input:required, textarea:required {
 }
 
 .project__process__container {
-  margin-bottom: 13em;
+  margin-bottom: 10em;
 }
 
 .project__process__img {
@@ -767,6 +775,9 @@ footer {
   .card--project .card__right {
     width: 100%;
   }
+  .card--single {
+    width: 90%;
+  }
   .card__thumbnail {
     overflow: visible;
   }
@@ -810,6 +821,9 @@ footer {
   .project__info__title,
   .project__info__content {
     padding: 0 20px;
+  }
+  .project__info__title {
+    text-align: center;
   }
   .flex--reverse {
     flex-wrap: wrap-reverse;
@@ -872,6 +886,9 @@ footer {
   #project--single {
     background-position-y: -600px;
   }
+  .rslides {
+    width: 75%;
+  }
 }
 
 @media (max-width: 500px) {
@@ -930,5 +947,8 @@ footer {
   }
   #project--single {
     background-position-y: -800px;
+  }
+  #about.body--bg {
+    background-position-y: -900px;
   }
 }
